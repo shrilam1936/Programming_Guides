@@ -1,0 +1,171 @@
+// 1. Basic Syntax
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Hello, World!" << endl; // Output a message to the console
+    return 0;
+}
+
+// 2. Data Types and Variables
+int age = 25; // Integer
+float height = 5.9; // Floating point number
+double precise = 9.87654321; // Double precision floating point
+char grade = 'A'; // Single character
+string name = "Alice"; // String
+bool isValid = true; // Boolean
+
+// 3. Constants
+const int PI = 3.14159; // Immutable value that cannot be changed
+
+// 4. Control Structures
+// if-else statement
+if (age > 18) {
+    cout << "Adult" << endl;
+} else {
+    cout << "Not an Adult" << endl;
+}
+
+// Switch statement
+switch(grade) {
+    case 'A':
+        cout << "Excellent" << endl;
+        break;
+    case 'B':
+        cout << "Good" << endl;
+        break;
+    default:
+        cout << "Average" << endl;
+}
+
+// 5. Loops
+// For loop
+for (int i = 0; i < 5; i++) {
+    cout << i << endl;
+}
+
+// While loop
+int counter = 0;
+while (counter < 5) {
+    cout << counter << endl;
+    counter++;
+}
+
+// Do-while loop
+do {
+    cout << counter << endl;
+    counter--;
+} while (counter > 0);
+
+// 6. Functions
+int addNumbers(int x, int y) {
+    return x + y; // Function that adds two integers
+}
+
+int result = addNumbers(5, 10);
+cout << "Sum: " << result << endl;
+
+// 7. Arrays
+int numbers[] = {1, 2, 3, 4, 5}; // Static array with 5 elements
+for (int i = 0; i < 5; i++) {
+    cout << numbers[i] << endl; // Accessing array elements
+}
+
+// Dynamic memory allocation
+int* arr = new int[10]; // Array of 10 integers allocated at runtime
+delete[] arr; // Free memory
+
+// 8. Pointers
+int var = 42;
+int* ptr = &var; // Pointer stores address of var
+cout << "Value of var: " << *ptr << endl; // Dereferencing pointer to access the value
+
+// Pointer arithmetic
+ptr++; // Moves the pointer to the next memory location
+
+// 9. Classes and Objects
+class Rectangle {
+public:
+    int width, height;
+
+    // Constructor
+    Rectangle(int w, int h) {
+        width = w;
+        height = h;
+    }
+
+    int area() { // Method to compute the area of the rectangle
+        return width * height;
+    }
+};
+
+Rectangle rect(5, 6);
+cout << "Area: " << rect.area() << endl;
+
+// 10. Inheritance
+class Shape {
+public:
+    string color = "red";
+
+    void displayColor() {
+        cout << "Color: " << color << endl;
+    }
+};
+
+class Circle : public Shape { // Inheritance from Shape class
+public:
+    int radius;
+
+    Circle(int r) {
+        radius = r;
+    }
+
+    int area() {
+        return 3.14159 * radius * radius;
+    }
+};
+
+Circle circ(10);
+circ.displayColor(); // Inherited method
+cout << "Area: " << circ.area() << endl;
+
+// 11. File I/O
+#include <fstream>
+
+ofstream MyFile("example.txt"); // Writing to a file
+MyFile << "Writing to file!";
+MyFile.close();
+
+ifstream MyReadFile("example.txt"); // Reading from a file
+string myText;
+while (getline(MyReadFile, myText)) {
+    cout << myText << endl;
+}
+MyReadFile.close();
+
+// 12. Smart Pointers
+#include <memory>
+
+shared_ptr<int> p1 = make_shared<int>(100); // Automatically managed memory
+cout << *p1 << endl; // Accessing the value
+
+unique_ptr<int> p2 = make_unique<int>(200); // Sole ownership of the object
+cout << *p2 << endl;
+
+// 13. Exception Handling
+try {
+    int x = 0;
+    if (x == 0)
+        throw "Division by zero error";
+} catch (const char* msg) {
+    cerr << msg << endl; // Handle the exception
+}
+
+// 14. Templates (Generic Programming)
+template <typename T>
+T getMax(T a, T b) {
+    return (a > b) ? a : b;
+}
+
+cout << getMax(10, 20) << endl; // Generic function for integers
+cout << getMax(1.5, 2.5) << endl; // Generic function for floats
