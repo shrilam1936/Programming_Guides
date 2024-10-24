@@ -1,0 +1,110 @@
+% MATLAB Basics
+disp('Hello, World!')
+
+% Variables and Data Types
+a = 10; % Integer
+b = 3.14159; % Floating point
+isTrue = true; % Boolean
+charValue = 'A'; % Character
+stringValue = "Hello"; % String
+
+% Arrays
+array1 = [1, 2, 3, 4, 5]; % Row vector
+array2 = [1; 2; 3; 4; 5]; % Column vector
+matrix = [1, 2; 3, 4]; % 2x2 matrix
+
+% Control Flow
+if isTrue
+    disp('It is true!');
+else
+    disp('It is false.');
+end
+
+for i = 1:5
+    disp(i);
+end
+
+while a > 0
+    disp(a);
+    a = a - 1;
+end
+
+% Functions
+function result = add(x, y)
+    result = x + y;
+end
+
+sumResult = add(5, 3);
+disp(sumResult); % Output: 8
+
+% Plotting
+x = linspace(0, 2*pi, 100);
+y = sin(x);
+plot(x, y);
+title('Sine Wave');
+xlabel('x');
+ylabel('sin(x)');
+
+% File I/O
+fileID = fopen('data.txt', 'r');
+data = fscanf(fileID, '%f');
+fclose(fileID);
+disp(data);
+
+% Matrix Operations
+A = [1, 2; 3, 4];
+B = [5, 6; 7, 8];
+
+C = A + B; % Matrix addition
+D = A * B; % Matrix multiplication
+E = A .* B; % Element-wise multiplication
+
+% Linear Algebra
+invA = inv(A); % Matrix inverse
+detA = det(A); % Matrix determinant
+eigA = eig(A); % Eigenvalues
+
+% Advanced MATLAB (Working with Large Data)
+% Preallocation for speed
+largeArray = zeros(1, 1e6); % Preallocating space for large array
+
+for i = 1:1e6
+    largeArray(i) = i^2; % Filling array with squares
+end
+
+% Anonymous Functions
+square = @(x) x.^2;
+disp(square(5)); % Output: 25
+
+% MATLAB with Machine Learning
+% Example: Linear Regression
+X = [1 2 3 4 5];
+Y = [2.1 2.9 3.8 4.4 5.2];
+
+coefficients = polyfit(X, Y, 1); % Fit linear model
+Y_pred = polyval(coefficients, X); % Predicted values
+
+plot(X, Y, 'o', X, Y_pred, '-');
+title('Linear Regression');
+legend('Data', 'Fit');
+
+% Image Processing Example
+img = imread('example.png');
+grayImg = rgb2gray(img);
+imshow(grayImg);
+
+% Solving Differential Equations
+% Example: dy/dx = y
+f = @(t, y) y;
+[t, y] = ode45(f, [0 2], 1); % Solve ODE from t=0 to t=2 with initial condition y(0)=1
+
+plot(t, y);
+title('Solution of dy/dx = y');
+xlabel('Time t');
+ylabel('y(t)');
+
+% MATLAB Optimization
+f = @(x) x(1)^2 + x(2)^2; % Function to minimize
+x0 = [1, 1]; % Initial guess
+x = fminunc(f, x0); % Unconstrained minimization
+disp(x); % Optimized values of x
