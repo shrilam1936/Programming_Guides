@@ -1,0 +1,237 @@
+<!-- 1. Basic HTML Structure -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content
+
+    content="width=device-width, initial-scale=1.0">
+    <title>My Webpage</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <p>This is my first webpage.</p>
+</body>
+</html>
+
+<!-- 2. HTML Elements -->
+<!-- Headings -->
+<h1>Main Heading</h1>
+<h2>Subheading</h2>
+
+<!-- Paragraphs -->
+<p>This is a paragraph.</p>
+
+<!-- Links -->
+<a href="https://example.com">Click Here</a>
+
+<!-- Images -->
+<img src="image.jpg" alt="Sample Image">
+
+<!-- Lists -->
+<ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+</ul>
+
+<!-- 3. CSS Styling -->
+<style>
+    body {
+        background-color: #f0f0f0; /* Light grey background */
+        font-family: Arial, sans-serif; /* Font family */
+    }
+
+    h1 {
+        color: #333; /* Dark grey text */
+        text-align: center; /* Centered heading */
+    }
+
+    p {
+        color: #555;
+        line-height: 1.5; /* Spacing between lines */
+    }
+</style>
+
+<!-- 4. CSS Selectors and Properties -->
+<style>
+    /* Class Selector */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* ID Selector */
+    #main-title {
+        font-size: 36px;
+        text-transform: uppercase;
+    }
+
+    /* Pseudo-class */
+    a:hover {
+        color: red; /* Changes link color when hovered */
+    }
+
+    /* Media Queries */
+    @media (max-width: 600px) {
+        body {
+            background-color: #fff; /* White background on small screens */
+        }
+    }
+</style>
+
+<!-- 5. JavaScript Basics -->
+<script>
+    console.log("Hello, World!"); // Output to the console
+
+    // Variables
+    var name = "Alice"; // Old variable syntax
+    let age = 25; // New variable syntax
+    const isStudent = true; // Constant variable
+
+    // Functions
+    function greet() {
+        return "Hello, " + name;
+    }
+
+    console.log(greet());
+
+    // Loops
+    for (let i = 0; i < 5; i++) {
+        console.log(i); // Loop from 0 to 4
+    }
+
+    // DOM Manipulation
+    document.getElementById("main-title").innerHTML = "New Title";
+</script>
+
+<!-- 6. JavaScript Advanced Concepts -->
+<script>
+    // Arrow Functions
+    const add = (a, b) => a + b;
+    console.log(add(2, 3)); // Output: 5
+
+    // Promises (Asynchronous Code)
+    const fetchData = () => {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => resolve("Data fetched"), 2000);
+        });
+    };
+
+    fetchData().then(data => console.log(data));
+
+    // Async/Await (Modern Asynchronous Code)
+    async function getData() {
+        let data = await fetchData();
+        console.log(data);
+    }
+
+    getData();
+
+    // Event Listeners
+    document.getElementById("myButton").addEventListener("click", () => {
+        alert("Button Clicked!");
+    });
+</script>
+
+<!-- 7. Responsive Web Design with Flexbox -->
+<style>
+    .container {
+        display: flex;
+        flex-direction: row; /* Horizontal layout */
+        justify-content: space-between; /* Spacing between items */
+    }
+
+    .item {
+        flex: 1; /* Each item takes equal space */
+        padding: 20px;
+        background-color: #ddd;
+    }
+</style>
+
+<div class="container">
+    <div class="item">Item 1</div>
+    <div class="item">Item 2</div>
+    <div class="item">Item 3</div>
+</div>
+
+<!-- 8. Fetch API for HTTP Requests -->
+<script>
+    fetch("https://api.example.com/data")
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error("Error fetching data:", error));
+</script>
+
+<!-- 9. Local Storage API -->
+<script>
+    // Save data to localStorage
+    localStorage.setItem("name", "Alice");
+
+    // Retrieve data from localStorage
+    let storedName = localStorage.getItem("name");
+    console.log(storedName); // Output: Alice
+
+    // Remove item from localStorage
+    localStorage.removeItem("name");
+</script>
+
+<!-- 10. Webpack Setup (Bundling) -->
+<!-- Webpack is used to bundle JavaScript files for production -->
+<!-- This is an example webpack.config.js file -->
+/*
+module.exports = {
+    entry: "./src/index.js",
+    output: {
+        path: __dirname + "/dist",
+        filename: "bundle.js"
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader",
+                    options: {
+                        presets: ["@babel/preset-env"]
+                    }
+                }
+            }
+        ]
+    }
+};
+*/
+
+<!-- 11. React Introduction -->
+<script>
+// React is a JavaScript library for building user interfaces
+class App extends React.Component {
+    render() {
+        return (
+            <div>
+                <h1>Hello, React!</h1>
+                <p>This is a React component.</p>
+            </div>
+        );
+    }
+}
+
+// Rendering the component in the DOM
+ReactDOM.render(<App />, document.getElementById("root"));
+</script>
+
+<!-- 12. APIs and AJAX with jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // AJAX request with jQuery
+    $.ajax({
+        url: "https://api.example.com/data",
+        method: "GET",
+        success: function(data) {
+            console.log(data);
+        },
+        error: function(error) {
+            console.error("Error fetching data:", error);
+        }
+    });
+</script>
